@@ -3,9 +3,22 @@ linters:
     eslint:
         config: './eslint.config'
 files:
-  ignore:
-    - 'bower_components/*'
-    - 'node_modules/*'
+    # Ignore the files that match these glob patterns.
+    # Be careful to quote strings as `*` has special
+    # meaning in YAML files.
+    ignore:
+        - 'src/generated/*.py'
+        - 'webroot/bower_components/*'
 
+branches:
+    # Ignore pull requests to the named branches
+    ignore:
+        - 'wip'
+        - 'feedback'
+
+review:
+    # Don't use 'failure' build status when
+    # a pull request contains style errors.
+    fail_on_comments: false
 
 
